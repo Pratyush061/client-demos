@@ -1,49 +1,106 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Mobile Menu Toggle ---
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileNav = document.getElementById('mobile-nav-overlay');
 
-    if (menuToggle && mobileNav) {
-        menuToggle.addEventListener('click', () => {
-            const isOpen = mobileNav.classList.contains('is-open');
-            if (isOpen) {
-                mobileNav.classList.remove('is-open');
-                menuToggle.setAttribute('aria-expanded', 'false');
+    // Sticky Header
+    const header = document.querySelector('.site-header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('is-scrolled');
             } else {
-                mobileNav.classList.add('is-open');
-                menuToggle.setAttribute('aria-expanded', 'true');
+                header.classList.remove('is-scrolled');
             }
         });
     }
 
-    // --- FAQ Accordion Logic ---
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    // Mobile Menu Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    if (navToggle && mainNav) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.contains('is-open');
+            mainNav.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', !isOpen);
+        });
+    }
 
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
-            const item = question.parentElement;
-            const answer = item.querySelector('.faq-answer');
-            const isOpen = item.classList.contains('is-open');
+    // Scroll Reveal Intersection Observer
+    const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
 
-            // Close all open FAQs
-            document.querySelectorAll('.faq-item.is-open').forEach(openItem => {
-                if (openItem !== item) {
-                    openItem.classList.remove('is-open');
-                    openItem.querySelector('.faq-answer').style.maxHeight = null;
-                    openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    // Check prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
                 }
             });
-
-            // Toggle current FAQ
-            if (isOpen) {
-                item.classList.remove('is-open');
-                answer.style.maxHeight = null;
-                question.setAttribute('aria-expanded', 'false');
-            } else {
-                item.classList.add('is-open');
-                answer.style.maxHeight = answer.scrollHeight + "px";
-                question.setAttribute('aria-expanded', 'true');
-            }
+        }, {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
-    });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    } else {
+        // Fallback for no intersection observer or reduced motion
+        revealElements.forEach(el => {
+            el.classList.add('is-visible');
+        });
+    }
+
+    // Before/After Slider Logic
+    const baSlider = document.querySelector('.ba-slider');
+    if (baSlider) {
+        const handle = baSlider.querySelector('.ba-handle');
+        const beforeDiv = baSlider.querySelector('.ba-before');
+        const beforeImg = beforeDiv.querySelector('img');
+
+        let isSliding = false;
+
+        const updateSliderWidth = () => {
+            if (beforeImg) {
+                // Ensure the image inside the clipping div is exactly the width of the full container
+                beforeImg.style.width = baSlider.offsetWidth + 'px';
+            }
+        };
+
+        // Initialize sizing
+        updateSliderWidth();
+        window.addEventListener('resize', updateSliderWidth);
+
+        const moveSlider = (e) => {
+            if (!isSliding) return;
+
+            let clientX = e.clientX;
+            if (e.type.includes('touch')) {
+                clientX = e.touches[0].clientX;
+            }
+
+            const rect = baSlider.getBoundingClientRect();
+            let xPos = clientX - rect.left;
+
+            // Constrain
+            if (xPos < 0) xPos = 0;
+            if (xPos > rect.width) xPos = rect.width;
+
+            const percentage = (xPos / rect.width) * 100;
+
+            handle.style.left = `${percentage}%`;
+            beforeDiv.style.width = `${percentage}%`;
+        };
+
+        handle.addEventListener('mousedown', () => { isSliding = true; });
+        handle.addEventListener('touchstart', () => { isSliding = true; });
+
+        window.addEventListener('mouseup', () => { isSliding = false; });
+        window.addEventListener('touchend', () => { isSliding = false; });
+
+        window.addEventListener('mousemove', moveSlider);
+        window.addEventListener('touchmove', moveSlider);
+    }
 });
