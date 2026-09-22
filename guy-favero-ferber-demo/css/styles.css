@@ -425,21 +425,11 @@ p:last-child {
     color: var(--clr-primary);
     padding: var(--space-lg);
     border: 1px solid var(--clr-gold);
-    width: 90%;
+    width: 100%;
     max-width: 400px;
-    margin: -4rem auto var(--space-md);
+    margin: var(--space-lg) 0 0;
     position: relative;
     z-index: 10;
-}
-
-@media (min-width: 992px) {
-    .booking-card {
-        position: absolute;
-        right: calc(50% - 200px);
-        bottom: var(--space-lg);
-        margin: 0;
-        transform: translateX(50%);
-    }
 }
 
 .booking-card .label { margin-bottom: var(--space-sm); }
