@@ -1,4 +1,0 @@
-127.0.0.1 - - [22/Sep/2026 21:11:48] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [22/Sep/2026 21:11:48] "GET /css/styles.css HTTP/1.1" 200 -
-127.0.0.1 - - [22/Sep/2026 21:11:48] "GET /js/main.js HTTP/1.1" 200 -
-127.0.0.1 - - [22/Sep/2026 21:11:52] "GET /veneers-smile-makeovers.html HTTP/1.1" 200 -

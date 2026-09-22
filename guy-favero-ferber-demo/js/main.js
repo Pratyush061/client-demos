@@ -30,6 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        // Assign a stagger delay to every child of .reveal-stagger containers,
+        // regardless of how many children exist (CSS used to cap at 5).
+        document.querySelectorAll('.reveal-stagger').forEach(group => {
+            Array.from(group.children).forEach((child, i) => {
+                child.style.transitionDelay = `${(i + 1) * 100}ms`;
+            });
+        });
+
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
