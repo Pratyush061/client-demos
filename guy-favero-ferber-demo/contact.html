@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Book | Guy Favero Ferber Dental Clinic</title>
+    <meta name="description" content="Contact the Guy Favero Ferber Dental Clinic in Marylebone, London. Book a consultation for general, cosmetic, or specialist dentistry.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                Guy Favero Ferber
+                <span>Dental Clinic</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="implants.html" class="nav-link">Implants</a></li>
+                    <li><a href="veneers-smile-makeovers.html" class="nav-link">Veneers</a></li>
+                    <li><a href="orthodontics-invisalign.html" class="nav-link">Orthodontics</a></li>
+                    <li><a href="endodontics.html" class="nav-link">Endodontics</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-ctas">
+                <a href="tel:02073231960" class="btn">Call 020 7323 1960</a>
+                <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+            </div>
+
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav id="mobile-nav-overlay" class="mobile-nav-overlay" aria-label="Mobile Navigation">
+        <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="implants.html" class="nav-link">Implants</a></li>
+            <li><a href="veneers-smile-makeovers.html" class="nav-link">Veneers & Smile Makeovers</a></li>
+            <li><a href="orthodontics-invisalign.html" class="nav-link">Orthodontics & Invisalign</a></li>
+            <li><a href="endodontics.html" class="nav-link">Endodontics</a></li>
+            <li><a href="contact.html" class="nav-link" style="color: var(--color-accent);">Contact & Book</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <div class="page-header">
+            <div class="container">
+                <h1>Get in <span class="italic-accent">Touch</span></h1>
+                <p style="margin: 0 auto;">We look forward to welcoming you to our clinic.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div>
+                        <h2>Book a Consultation</h2>
+                        <p>Please complete the form below to request an appointment or ask a question. Our reception team will contact you shortly to confirm.</p>
+
+                        <!-- Form with clearly marked placeholder action -->
+                        <form action="#TODO-ADD-FORM-ENDPOINT" method="POST" class="contact-form" style="margin-top: var(--space-md);">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="treatment" class="form-label">Treatment of Interest</label>
+                                <select id="treatment" name="treatment" class="form-control" required>
+                                    <option value="">Please select...</option>
+                                    <option value="General Dentistry">General Dentistry</option>
+                                    <option value="Hygiene">Hygiene</option>
+                                    <option value="Dental Implants">Dental Implants</option>
+                                    <option value="Veneers / Cosmetic">Veneers & Smile Makeovers</option>
+                                    <option value="Orthodontics / Invisalign">Orthodontics & Invisalign</option>
+                                    <option value="Endodontics">Endodontics</option>
+                                    <option value="Periodontics">Periodontics</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message (Optional)</label>
+                                <textarea id="message" name="message" class="form-control"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: var(--space-sm);">Send Enquiry</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <div class="contact-info-card">
+                            <h3>Contact Information</h3>
+                            <p><strong>Phone:</strong><br>
+                                <a href="tel:02073231960">020 7323 1960</a><br>
+                                <a href="tel:02074365922">020 7436 5922</a>
+                            </p>
+
+                            <p><strong>WhatsApp:</strong><br>
+                                <!-- TODO: Replace placeholder WhatsApp number -->
+                                <a href="https://wa.me/440000000000" target="_blank" rel="noopener">Chat with us</a>
+                            </p>
+
+                            <p><strong>Email:</strong><br>
+                                <a href="mailto:info@guyandfaverodental.co.uk">info@guyandfaverodental.co.uk</a>
+                            </p>
+
+                            <h3 style="margin-top: var(--space-md);">Location</h3>
+                            <p>
+                                1st Floor, 18 Wimpole Street<br>
+                                Marylebone, London<br>
+                                W1G 8GD
+                            </p>
+
+                            <h3 style="margin-top: var(--space-md);">Opening Hours</h3>
+                            <p>
+                                Monday to Friday: 9:00am - 6:00pm<br>
+                                Saturday & Sunday: Closed
+                            </p>
+
+                            <!-- Map Placeholder -->
+                            <div class="map-placeholder">
+                                <!-- TODO: Clinic to embed actual Google Map iframe here -->
+                                [ Google Map Embed Placeholder ]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: var(--color-bg); margin-bottom: var(--space-sm);">
+                        Guy Favero Ferber
+                        <span style="color: var(--color-border);">Dental Clinic</span>
+                    </a>
+                    <p>General and specialist dental clinic in the Harley Street District.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <a href="tel:02073231960">020 7323 1960</a>
+                    <a href="tel:02074365922">020 7436 5922</a>
+                    <a href="mailto:info@guyandfaverodental.co.uk">info@guyandfaverodental.co.uk</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Location & Hours</h4>
+                    <p>1st Floor, 18 Wimpole Street<br>Marylebone, London W1G 8GD</p>
+                    <p style="margin-top: 10px;">Mon - Fri: 9:00am - 6:00pm<br>Sat - Sun: Closed</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; <script>document.write(new Date().getFullYear())</script> Guy Favero Ferber Dental Clinic. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
