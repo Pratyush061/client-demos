@@ -1,4 +1,7 @@
-127.0.0.1 - - [25/Sep/2026 07:58:02] "GET /physiome-at-ethos/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [25/Sep/2026 07:58:35] "GET /physiome-at-ethos/index.html HTTP/1.1" 200 -
-127.0.0.1 - - [25/Sep/2026 07:58:35] "GET /physiome-at-ethos/styles.css HTTP/1.1" 200 -
-127.0.0.1 - - [25/Sep/2026 07:58:35] "GET /physiome-at-ethos/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Sep/2026 11:07:23] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Sep/2026 11:08:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Sep/2026 11:08:42] "GET /styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Sep/2026 11:08:42] "GET /script.js HTTP/1.1" 200 -
+127.0.0.1 - - [25/Sep/2026 11:09:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [25/Sep/2026 11:09:32] "GET /styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [25/Sep/2026 11:09:32] "GET /script.js HTTP/1.1" 200 -
