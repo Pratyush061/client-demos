@@ -1074,25 +1074,22 @@ h3 {
   border-bottom: 2px solid var(--ink);
 }
 
-/* --- Hero photo inside the geometric composition --- */
-.comp-square {
-  overflow: hidden;
+/* --- Hero photo as full-panel backdrop behind the geometric composition --- */
+.hero-right {
+  min-height: 420px;
 }
-.comp-photo {
+.hero-panel-photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%) contrast(1.05);
-  transition: filter 300ms ease-out;
+  object-position: center;
+  filter: grayscale(100%) contrast(1.08);
+  transition: filter 400ms ease-out;
 }
-.comp-square:hover .comp-photo {
+.hero-right:hover .hero-panel-photo {
   filter: grayscale(0%) contrast(1);
-}
-.comp-inner-triangle {
-  position: relative;
-  z-index: 2;
 }
 
 /* --- Hero entrance (staggered, on load) --- */
