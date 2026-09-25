@@ -693,3 +693,110 @@ footer a:hover {
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   ENHANCEMENTS: imagery motion, gallery, decorative line draw
+   (organic motion - slow, graceful, ease-out, honey-like)
+   ============================================================ */
+
+/* --- Hero image: slow ken-burns breathing (keeps its -1deg tilt) --- */
+@keyframes bt-kenburns {
+  from { transform: scale(1) rotate(-1deg); }
+  to   { transform: scale(1.08) rotate(-1deg); }
+}
+.hero-image-wrapper .arch img {
+  animation: bt-kenburns 24s ease-in-out infinite alternate;
+}
+
+/* --- Floating hero review card --- */
+@keyframes bt-float {
+  from { transform: translateY(-7px); }
+  to   { transform: translateY(7px); }
+}
+.hero-quote {
+  animation: bt-float 7s ease-in-out infinite alternate;
+}
+
+/* --- Decorative clay blob: gentle sway --- */
+@keyframes bt-blob-sway {
+  from { transform: rotate(-3deg); }
+  to   { transform: rotate(3deg); }
+}
+.blob {
+  animation: bt-blob-sway 12s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+/* --- Decorative meander: vine draws itself on scroll --- */
+.meander path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  transition: stroke-dashoffset 1.6s ease-out 0.2s;
+}
+.meander.visible path {
+  stroke-dashoffset: 0;
+}
+
+/* --- Gallery: inside the clinic (arched, softly rotated) --- */
+.gallery-grid {
+  gap: 3rem;
+}
+.gallery-item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 160px 160px 16px 16px;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-1.2deg);
+  transition: transform 500ms ease-out, box-shadow 500ms ease-out;
+  aspect-ratio: 3 / 4;
+  background: var(--clay-light);
+}
+.gallery-item:nth-child(2) {
+  transform: rotate(0.9deg) translateY(2rem);
+}
+.gallery-item:nth-child(3) {
+  transform: rotate(-0.5deg);
+}
+.gallery-item:hover {
+  transform: translateY(-8px) rotate(0deg);
+  box-shadow: var(--shadow-xl);
+}
+.gallery-item:nth-child(2):hover {
+  transform: translateY(calc(2rem - 8px)) rotate(0deg);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 700ms ease-out;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-note {
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 3rem;
+}
+
+/* --- Stat numbers: gentle emphasis on entry --- */
+.stat-number {
+  transition: color 500ms ease-out;
+}
+
+/* --- Reduced motion: everything settles instantly --- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-wrapper .arch img,
+  .hero-quote,
+  .blob { animation: none !important; }
+  .meander path { stroke-dashoffset: 0; transition: none; }
+  .gallery-item,
+  .gallery-item:nth-child(2),
+  .gallery-item:nth-child(3),
+  .gallery-item:hover,
+  .gallery-item:nth-child(2):hover { transform: none; }
+  .gallery-item img,
+  .gallery-item:hover img { transform: none; transition: none; }
+}

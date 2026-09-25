@@ -41,6 +41,9 @@
 </head>
 <body>
 
+  <!-- Scroll progress indicator (geometric colour segments) -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <!-- Header / Navigation -->
   <header class="header" id="header">
     <div class="container header-container">
@@ -112,6 +115,8 @@
           <div class="comp-shape comp-circle"></div>
           <div class="comp-shape comp-square-rotated"></div>
           <div class="comp-shape comp-square">
+            <!-- Stock placeholder photo (Pexels, free licence) - replace with a real clinic photo -->
+            <img class="comp-photo" src="https://images.pexels.com/photos/20860606/pexels-photo-20860606.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Physiotherapist performing hands-on treatment on a patient's back" loading="lazy" width="360" height="360">
             <div class="comp-inner-triangle"></div>
           </div>
         </div>
@@ -139,6 +144,24 @@
         </div>
       </div>
     </section>
+
+    <!-- Scrolling services ticker (Bauhaus marquee) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item">PHYSIOTHERAPY</span><span class="marquee-dot bg-red"></span>
+        <span class="marquee-item">SPORTS REHABILITATION</span><span class="marquee-dot bg-blue"></span>
+        <span class="marquee-item">CLINICAL MASSAGE</span><span class="marquee-dot bg-yellow"></span>
+        <span class="marquee-item">ACUPUNCTURE & TAPING</span><span class="marquee-dot bg-red"></span>
+        <span class="marquee-item">SPORTS ASSESSMENT</span><span class="marquee-dot bg-blue"></span>
+        <span class="marquee-item">SPECIALIST INJECTIONS</span><span class="marquee-dot bg-yellow"></span>
+        <span class="marquee-item">PHYSIOTHERAPY</span><span class="marquee-dot bg-red"></span>
+        <span class="marquee-item">SPORTS REHABILITATION</span><span class="marquee-dot bg-blue"></span>
+        <span class="marquee-item">CLINICAL MASSAGE</span><span class="marquee-dot bg-yellow"></span>
+        <span class="marquee-item">ACUPUNCTURE & TAPING</span><span class="marquee-dot bg-red"></span>
+        <span class="marquee-item">SPORTS ASSESSMENT</span><span class="marquee-dot bg-blue"></span>
+        <span class="marquee-item">SPECIALIST INJECTIONS</span><span class="marquee-dot bg-yellow"></span>
+      </div>
+    </div>
 
     <!-- Services Section -->
     <section id="services" class="section services-section bg-canvas">
@@ -290,7 +313,37 @@
               </li>
             </ul>
           </div>
+          <div class="about-image">
+            <!-- Stock placeholder portrait (Pexels, free licence) - replace with a real photo of Ali -->
+            <img src="https://images.pexels.com/photos/32115962/pexels-photo-32115962.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Portrait of a healthcare professional" loading="lazy" width="350" height="440">
+            <div class="about-image-shape shape-triangle bg-yellow"></div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Gallery: inside the clinic -->
+    <section id="gallery" class="section bg-canvas">
+      <div class="container">
+        <h2 class="section-title">INSIDE THE CLINIC</h2>
+
+        <div class="gallery-grid">
+          <!-- Stock placeholder photos (Pexels, free licence) - replace with real clinic photography -->
+          <figure class="gallery-item rounded-full">
+            <img src="https://images.pexels.com/photos/20860598/pexels-photo-20860598.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Close-up of hands-on physiotherapy treatment" loading="lazy" width="350" height="350">
+          </figure>
+          <figure class="gallery-item rounded-none">
+            <img src="https://images.pexels.com/photos/6076134/pexels-photo-6076134.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Kinesiology taping on an athlete's shoulder" loading="lazy" width="350" height="350">
+          </figure>
+          <figure class="gallery-item rounded-none">
+            <img src="https://images.pexels.com/photos/6111612/pexels-photo-6111612.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Guided rehabilitation exercise on a mat" loading="lazy" width="350" height="350">
+          </figure>
+          <figure class="gallery-item rounded-full">
+            <img src="https://images.pexels.com/photos/6740042/pexels-photo-6740042.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Strength and conditioning training" loading="lazy" width="350" height="350">
+          </figure>
+        </div>
+
+        <p class="gallery-note">All photos are free stock placeholders (Pexels) &mdash; replace with real clinic photography before launch.</p>
       </div>
     </section>
 
@@ -419,12 +472,14 @@
           <div class="card testimonial-card">
             <div class="card-shape shape-circle bg-blue"></div>
             <p class="quote">"Ali is an exceptional physiotherapist. He immediately identified the issue with my knee and provided hands-on treatment that offered instant relief."</p>
+            <div class="testimonial-avatar" aria-hidden="true">P</div>
             <p class="author">— Placeholder Name</p>
           </div>
           <!-- TODO: replace with real reviews -->
           <div class="card testimonial-card">
             <div class="card-shape shape-square bg-yellow"></div>
             <p class="quote">"The sports massage and acupuncture combination really helped my back pain. Highly recommended clinic in South Kensington."</p>
+            <div class="testimonial-avatar" aria-hidden="true">P</div>
             <p class="author">— Placeholder Name</p>
           </div>
         </div>

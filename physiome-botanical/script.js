@@ -82,3 +82,59 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ============================================================
+// ENHANCEMENTS: animated stat counters, meander line draw
+// (organic motion - slow, graceful, ease-out)
+// ============================================================
+document.addEventListener('DOMContentLoaded', () => {
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // --- Animated stat numbers (5.0 rating, 7 days...) ---
+    if (!prefersReducedMotion) {
+        const animateNumber = (el, target, decimals) => {
+            const duration = 1400;
+            const start = performance.now();
+            const step = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                el.textContent = (target * eased).toFixed(decimals);
+                if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+        };
+
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const match = el.textContent.match(/^(\d+(?:\.\d+)?)/);
+                if (match) {
+                    const value = parseFloat(match[1]);
+                    const decimals = match[1].includes('.') ? 1 : 0;
+                    animateNumber(el, value, decimals);
+                }
+                statObserver.unobserve(el);
+            });
+        }, { threshold: 0.6 });
+
+        document.querySelectorAll('.stat-number').forEach(el => {
+            statObserver.observe(el);
+        });
+    }
+
+    // --- Decorative meander: vine draws itself when scrolled into view ---
+    const meanders = document.querySelectorAll('.meander');
+    if (meanders.length) {
+        const meanderObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    meanderObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        meanders.forEach(el => meanderObserver.observe(el));
+    }
+});
